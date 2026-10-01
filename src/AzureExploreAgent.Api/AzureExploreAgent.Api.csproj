@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>azure-explore-agent-api</UserSecretsId>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Agents.AI.Hosting.A2A.AspNetCore" Version="1.23.0-preview.260928.1" />
+        <PackageReference Include="Microsoft.Identity.Web" Version="4.15.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\AzureExploreAgent.Application\AzureExploreAgent.Application.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="Instructions\**" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+</Project>

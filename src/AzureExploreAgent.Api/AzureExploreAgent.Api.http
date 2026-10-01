@@ -1,0 +1,27 @@
+@baseAddress = http://localhost:5080
+# Token for api://<AZURE_EXPLORE_AGENT_CLIENT_ID> issued to an allowed Foundry identity.
+@token = <access-token>
+
+### Public liveness
+GET {{baseAddress}}/health
+
+### Public Agent Card
+GET {{baseAddress}}/.well-known/agent-card.json
+
+### Send a message (requires an authorized Foundry caller)
+POST {{baseAddress}}/a2a/azure-explore-agent/message:send
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "message": {
+    "role": "ROLE_USER",
+    "parts": [
+      {
+        "text": "List the resource groups I can see and summarize what runs in each one."
+      }
+    ],
+    "messageId": null,
+    "contextId": "local-test"
+  }
+}
